@@ -44,11 +44,11 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "hu_HU" },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: "https://kalasz-auto.lovable.app/" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESC },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://kalasz-auto.lovable.app/" }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(jsonLd) },
     ],
