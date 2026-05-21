@@ -77,14 +77,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "hu_HU" },
       { name: "twitter:card", content: "summary_large_image" },
-      { title: "Lovable App" },
-      { property: "og:title", content: "Lovable App" },
-      { name: "twitter:title", content: "Lovable App" },
-      { name: "description", content: "Kalász SEO Boost creates a production-ready, SEO-optimized website for Kalász Autószerviz." },
-      { property: "og:description", content: "Kalász SEO Boost creates a production-ready, SEO-optimized website for Kalász Autószerviz." },
-      { name: "twitter:description", content: "Kalász SEO Boost creates a production-ready, SEO-optimized website for Kalász Autószerviz." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f34c623e-32d5-4cc0-aae8-f06c41912231/id-preview-46f111a2--11ea7739-2344-4c73-8eea-f06712978d68.lovable.app-1779383052391.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f34c623e-32d5-4cc0-aae8-f06c41912231/id-preview-46f111a2--11ea7739-2344-4c73-8eea-f06712978d68.lovable.app-1779383052391.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -98,7 +90,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="hu">
       <head>
         <HeadContent />
       </head>
