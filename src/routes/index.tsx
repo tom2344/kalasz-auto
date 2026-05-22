@@ -1,8 +1,35 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
+import {
+  Disc3,
+  Car,
+  Search,
+  Droplet,
+  Wrench,
+  Zap,
+  ClipboardCheck,
+  Settings,
+  Facebook,
+  Phone,
+} from "lucide-react";
 import logo from "@/assets/q-service-logo.png";
+import gallery1 from "@/assets/gallery-1.jpg";
+import gallery2 from "@/assets/gallery-2.jpg";
+import gallery3 from "@/assets/gallery-3.jpg";
+import gallery4 from "@/assets/gallery-4.jpg";
+import gallery5 from "@/assets/gallery-5.jpg";
+import gallery6 from "@/assets/gallery-6.jpg";
 import { sendAppointment } from "@/lib/appointment.functions";
+
+const galleryImages = [
+  { src: gallery1, alt: "Autószerviz műhely belső" },
+  { src: gallery2, alt: "Féktárcsa csere" },
+  { src: gallery3, alt: "Motor diagnosztika" },
+  { src: gallery4, alt: "Olajcsere" },
+  { src: gallery5, alt: "Futómű javítás" },
+  { src: gallery6, alt: "Szerszámok és felszerelés" },
+];
 
 const TITLE = "Kalász Autószerviz | Autószerviz Békésen – Fék, Futómű, Diagnosztika";
 const DESC =
@@ -57,14 +84,14 @@ export const Route = createFileRoute("/")({
 });
 
 const services = [
-  { t: "Fék javítás", d: "Féktárcsa, fékbetét, fékfolyadék csere — gyorsan és garanciával." },
-  { t: "Futómű javítás", d: "Lengéscsillapító, stabilizátor, futómű geometria beállítás." },
-  { t: "Motor diagnosztika", d: "Bosch diagnosztika, hibakód olvasás, pontos hibafeltárás." },
-  { t: "Olajcsere", d: "Motorolaj és szűrők cseréje márkafüggetlenül, minőségi alapanyagokkal." },
-  { t: "Vezérlés és kuplung csere", d: "Vezérműszíj, vezérműlánc, kuplung szett csere szakszerűen." },
-  { t: "Elektromos hibák javítása", d: "Elektromos rendszer diagnosztika és javítás minden márkára." },
-  { t: "Műszakira felkészítés", d: "Teljes körű átvizsgálás és felkészítés a műszaki vizsgára." },
-  { t: "Általános karbantartás", d: "Időszakos szervizelés, ellenőrzés, megelőző karbantartás." },
+  { t: "Fék javítás", d: "Féktárcsa, fékbetét, fékfolyadék csere — gyorsan és garanciával.", Icon: Disc3 },
+  { t: "Futómű javítás", d: "Lengéscsillapító, stabilizátor, futómű geometria beállítás.", Icon: Car },
+  { t: "Motor diagnosztika", d: "Bosch diagnosztika, hibakód olvasás, pontos hibafeltárás.", Icon: Search },
+  { t: "Olajcsere", d: "Motorolaj és szűrők cseréje márkafüggetlenül, minőségi alapanyagokkal.", Icon: Droplet },
+  { t: "Vezérlés és kuplung csere", d: "Vezérműszíj, vezérműlánc, kuplung szett csere szakszerűen.", Icon: Wrench },
+  { t: "Elektromos hibák javítása", d: "Elektromos rendszer diagnosztika és javítás minden márkára.", Icon: Zap },
+  { t: "Műszakira felkészítés", d: "Teljes körű átvizsgálás és felkészítés a műszaki vizsgára.", Icon: ClipboardCheck },
+  { t: "Általános karbantartás", d: "Időszakos szervizelés, ellenőrzés, megelőző karbantartás.", Icon: Settings },
 ];
 
 const trust = [
@@ -96,24 +123,37 @@ function Index() {
 
 function Header() {
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        <a href="#top" className="flex items-center gap-2">
-          <img src={logo} alt="Q-Service" className="h-9 w-9 object-contain" width={36} height={36} />
-          <span className="font-bold text-secondary">Kalász Autószerviz</span>
+    <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 shadow-sm">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 md:px-6">
+        <a href="#top" className="flex items-center gap-2.5">
+          <img src={logo} alt="Q-Service" className="h-10 w-10 object-contain" width={40} height={40} />
+          <span className="font-bold text-secondary tracking-tight">Kalász Autószerviz</span>
         </a>
-        <nav className="hidden gap-6 text-sm md:flex">
-          <a href="#szolgaltatasok" className="hover:text-primary">Szolgáltatások</a>
-          <a href="#rolunk" className="hover:text-primary">Rólunk</a>
-          <a href="#idopont" className="hover:text-primary">Időpont</a>
-          <a href="#kapcsolat" className="hover:text-primary">Kapcsolat</a>
+        <nav className="hidden gap-7 text-sm font-medium md:flex">
+          <a href="#szolgaltatasok" className="text-foreground/80 hover:text-primary transition-colors">Szolgáltatások</a>
+          <a href="#rolunk" className="text-foreground/80 hover:text-primary transition-colors">Rólunk</a>
+          <a href="#idopont" className="text-foreground/80 hover:text-primary transition-colors">Időpont</a>
+          <a href="#kapcsolat" className="text-foreground/80 hover:text-primary transition-colors">Kapcsolat</a>
         </nav>
-        <a
-          href="tel:+36703683302"
-          className="rounded-md bg-primary px-3 py-2 text-sm font-semibold text-primary-foreground hover:opacity-90"
-        >
-          +36 70 368 3302
-        </a>
+        <div className="flex items-center gap-2">
+          <a
+            href="https://www.facebook.com/p/Kal%C3%A1sz-Aut%C3%B3szerviz-61582370366586/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+            className="hidden sm:inline-flex h-10 w-10 items-center justify-center rounded-md border border-border text-secondary hover:bg-muted transition-colors"
+          >
+            <Facebook className="h-5 w-5" />
+          </a>
+          <a
+            href="tel:+36703683302"
+            className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90 transition-colors"
+          >
+            <Phone className="h-4 w-4" />
+            <span className="hidden sm:inline">+36 70 368 3302</span>
+            <span className="sm:hidden">Hívás</span>
+          </a>
+        </div>
       </div>
     </header>
   );
@@ -156,18 +196,27 @@ function Hero() {
 function Services() {
   return (
     <section id="szolgaltatasok" className="bg-background">
-      <div className="mx-auto max-w-6xl px-4 py-16">
-        <h2 className="text-3xl font-bold md:text-4xl">Szolgáltatások</h2>
-        <p className="mt-2 text-muted-foreground">
+      <div className="mx-auto max-w-6xl px-4 py-20 md:py-24 md:px-6">
+        <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Szolgáltatások</h2>
+        <p className="mt-3 text-base text-muted-foreground md:text-lg">
           Márkafüggetlen autószerelés Békésen és környékén.
         </p>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {services.map((s) => (
-            <article key={s.t} className="rounded-lg border border-border bg-card p-5">
-              <h3 className="text-lg font-semibold text-secondary">{s.t}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{s.d}</p>
-            </article>
-          ))}
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {services.map((s) => {
+            const Icon = s.Icon;
+            return (
+              <article
+                key={s.t}
+                className="group flex h-full flex-col rounded-xl border border-border bg-card p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
+              >
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                  <Icon className="h-6 w-6" />
+                </div>
+                <h3 className="mt-5 text-lg font-semibold text-secondary">{s.t}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.d}</p>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -177,9 +226,9 @@ function Services() {
 function ServiceArea() {
   return (
     <section id="terulet" className="border-t border-border bg-muted/40">
-      <div className="mx-auto max-w-6xl px-4 py-16">
-        <h2 className="text-3xl font-bold md:text-4xl">Szolgáltatási terület</h2>
-        <p className="mt-4 max-w-3xl text-base text-muted-foreground md:text-lg">
+      <div className="mx-auto max-w-6xl px-4 py-20 md:py-24 md:px-6">
+        <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Szolgáltatási terület</h2>
+        <p className="mt-4 max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg">
           Autószervizünk Békésen, a Kalász soron található. Ügyfeleinket fogadjuk Békésről és a
           környező településekről — Békéscsabáról, Gyuláról és a 20 km-es körzetből.
         </p>
@@ -191,20 +240,20 @@ function ServiceArea() {
 function About() {
   return (
     <section id="rolunk" className="bg-background">
-      <div className="mx-auto max-w-6xl px-4 py-16">
-        <h2 className="text-3xl font-bold md:text-4xl">Rólunk</h2>
-        <p className="mt-4 max-w-3xl text-base text-muted-foreground md:text-lg">
+      <div className="mx-auto max-w-6xl px-4 py-20 md:py-24 md:px-6">
+        <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Rólunk</h2>
+        <p className="mt-4 max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg">
           Q-Service hálózat tagja, több mint 15 év tapasztalattal. Márkafüggetlen autószerviz
           személyautók és kis teherautók javítására. Modern diagnosztika, gyors hibafeltárás,
           garancia minden munkára.
         </p>
-        <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {trust.map((b) => (
             <li
               key={b}
-              className="rounded-md border border-border bg-card px-4 py-3 text-sm font-medium text-secondary"
+              className="rounded-lg border border-border bg-card px-4 py-3 text-sm font-medium text-secondary shadow-sm"
             >
-              ✓ {b}
+              <span className="mr-2 text-primary">✓</span>{b}
             </li>
           ))}
         </ul>
@@ -216,18 +265,26 @@ function About() {
 function Gallery() {
   return (
     <section id="galeria" className="border-t border-border bg-muted/40">
-      <div className="mx-auto max-w-6xl px-4 py-16">
-        <h2 className="text-3xl font-bold md:text-4xl">Pár kép szervizünkből</h2>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {Array.from({ length: 6 }).map((_, i) => (
+      <div className="mx-auto max-w-6xl px-4 py-20 md:py-24 md:px-6">
+        <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Pár kép szervizünkből</h2>
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {galleryImages.map((img, i) => (
             <div
               key={i}
-              className="flex aspect-[4/3] items-center justify-center rounded-lg border border-dashed border-border bg-card text-sm text-muted-foreground"
+              className="group relative aspect-[4/3] overflow-hidden rounded-xl border border-border bg-card shadow-sm"
             >
-              Kép {i + 1}
+              <img
+                src={img.src}
+                alt={img.alt}
+                loading="lazy"
+                width={1024}
+                height={768}
+                className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+              />
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );
