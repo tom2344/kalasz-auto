@@ -378,11 +378,11 @@ function Appointment() {
           </label>
           <label className="block">
             <span className="mb-1 block text-sm font-medium">Kívánt dátum *</span>
-            <input name="datum" type="date" required className={input} />
+            <input name="datum" type="date" required lang="hu-HU" className={input} />
           </label>
           <label className="block">
             <span className="mb-1 block text-sm font-medium">Kívánt időpont *</span>
-            <input name="idopont" type="time" required className={input} />
+            <input name="idopont" type="time" required lang="hu-HU" step={60} className={input} />
           </label>
           <label className="block sm:col-span-2">
             <span className="mb-1 block text-sm font-medium">Megjegyzés</span>
