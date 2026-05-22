@@ -103,6 +103,13 @@ const trust = [
   "Békés és környéke",
 ];
 
+const timeOptions = Array.from({ length: 41 }, (_, i) => {
+  const totalMinutes = 8 * 60 + i * 15;
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
+  return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}`;
+});
+
 function Index() {
   return (
     <>
@@ -372,7 +379,12 @@ function Appointment() {
           </label>
           <label className="block">
             <span className="mb-1 block text-sm font-medium">Kívánt időpont *</span>
-            <input name="idopont" type="time" required lang="hu-HU" step={60} className={input} />
+            <select name="idopont" required lang="hu-HU" className={input} defaultValue="">
+              <option value="" disabled>Válasszon…</option>
+              {timeOptions.map((time) => (
+                <option key={time} value={time}>{time}</option>
+              ))}
+            </select>
           </label>
           <label className="block sm:col-span-2">
             <span className="mb-1 block text-sm font-medium">Megjegyzés</span>
