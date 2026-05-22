@@ -84,14 +84,14 @@ export const Route = createFileRoute("/")({
 });
 
 const services = [
-  { t: "Fék javítás", d: "Féktárcsa, fékbetét, fékfolyadék csere — gyorsan és garanciával." },
-  { t: "Futómű javítás", d: "Lengéscsillapító, stabilizátor, futómű geometria beállítás." },
-  { t: "Motor diagnosztika", d: "Bosch diagnosztika, hibakód olvasás, pontos hibafeltárás." },
-  { t: "Olajcsere", d: "Motorolaj és szűrők cseréje márkafüggetlenül, minőségi alapanyagokkal." },
-  { t: "Vezérlés és kuplung csere", d: "Vezérműszíj, vezérműlánc, kuplung szett csere szakszerűen." },
-  { t: "Elektromos hibák javítása", d: "Elektromos rendszer diagnosztika és javítás minden márkára." },
-  { t: "Műszakira felkészítés", d: "Teljes körű átvizsgálás és felkészítés a műszaki vizsgára." },
-  { t: "Általános karbantartás", d: "Időszakos szervizelés, ellenőrzés, megelőző karbantartás." },
+  { t: "Fék javítás", d: "Féktárcsa, fékbetét, fékfolyadék csere — gyorsan és garanciával.", Icon: Disc3 },
+  { t: "Futómű javítás", d: "Lengéscsillapító, stabilizátor, futómű geometria beállítás.", Icon: Car },
+  { t: "Motor diagnosztika", d: "Bosch diagnosztika, hibakód olvasás, pontos hibafeltárás.", Icon: Search },
+  { t: "Olajcsere", d: "Motorolaj és szűrők cseréje márkafüggetlenül, minőségi alapanyagokkal.", Icon: Droplet },
+  { t: "Vezérlés és kuplung csere", d: "Vezérműszíj, vezérműlánc, kuplung szett csere szakszerűen.", Icon: Wrench },
+  { t: "Elektromos hibák javítása", d: "Elektromos rendszer diagnosztika és javítás minden márkára.", Icon: Zap },
+  { t: "Műszakira felkészítés", d: "Teljes körű átvizsgálás és felkészítés a műszaki vizsgára.", Icon: ClipboardCheck },
+  { t: "Általános karbantartás", d: "Időszakos szervizelés, ellenőrzés, megelőző karbantartás.", Icon: Settings },
 ];
 
 const trust = [
