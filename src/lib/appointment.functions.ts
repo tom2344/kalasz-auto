@@ -63,7 +63,7 @@ export const sendAppointment = createServerFn({ method: "POST" })
         },
         body: JSON.stringify({
           from: "Kalász Autószerviz <onboarding@resend.dev>",
-          to: ["nagy.csavas@gmail.com"],
+          to: ["tokolitamas7@gmail.com"],
           reply_to: data.email || undefined,
           subject: `Időpontkérés: ${data.nev} — ${data.datum} ${data.idopont}`,
           html,

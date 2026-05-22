@@ -14,17 +14,12 @@ import {
   Phone,
 } from "lucide-react";
 import logo from "@/assets/q-service-logo.png";
-import gallery1 from "@/assets/gallery-1.jpg";
-import gallery2 from "@/assets/gallery-2.jpg";
-import gallery3 from "@/assets/gallery-3.jpg";
-import gallery4 from "@/assets/gallery-4.jpg";
-import gallery5 from "@/assets/gallery-5.jpg";
-import gallery6 from "@/assets/gallery-6.jpg";
 import photo1 from "@/assets/photo-1.jpg";
 import photo2 from "@/assets/photo-2.jpg";
 import photo3 from "@/assets/photo-3.jpg";
 import photo4 from "@/assets/photo-4.jpg";
 import photo5 from "@/assets/photo-5.jpg";
+import photo6 from "@/assets/photo-6.jpg";
 import { sendAppointment } from "@/lib/appointment.functions";
 
 const galleryImages = [
@@ -33,12 +28,7 @@ const galleryImages = [
   { src: photo3, alt: "Turbó és motor diagnosztika" },
   { src: photo4, alt: "Ford Focus emelőn, kerékcsere" },
   { src: photo5, alt: "BMW diagnosztika tablettel" },
-  { src: gallery1, alt: "Autószerviz műhely belső" },
-  { src: gallery2, alt: "Féktárcsa csere" },
-  { src: gallery3, alt: "Motor diagnosztika" },
-  { src: gallery4, alt: "Olajcsere" },
-  { src: gallery5, alt: "Futómű javítás" },
-  { src: gallery6, alt: "Szerszámok és felszerelés" },
+  { src: photo6, alt: "Autó motortér szerelés emelőn" },
 ];
 
 const TITLE = "Kalász Autószerviz | Autószerviz Békésen – Fék, Futómű, Diagnosztika";
