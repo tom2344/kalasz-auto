@@ -196,18 +196,27 @@ function Hero() {
 function Services() {
   return (
     <section id="szolgaltatasok" className="bg-background">
-      <div className="mx-auto max-w-6xl px-4 py-16">
-        <h2 className="text-3xl font-bold md:text-4xl">Szolgáltatások</h2>
-        <p className="mt-2 text-muted-foreground">
+      <div className="mx-auto max-w-6xl px-4 py-20 md:py-24 md:px-6">
+        <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Szolgáltatások</h2>
+        <p className="mt-3 text-base text-muted-foreground md:text-lg">
           Márkafüggetlen autószerelés Békésen és környékén.
         </p>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {services.map((s) => (
-            <article key={s.t} className="rounded-lg border border-border bg-card p-5">
-              <h3 className="text-lg font-semibold text-secondary">{s.t}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{s.d}</p>
-            </article>
-          ))}
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {services.map((s) => {
+            const Icon = s.Icon;
+            return (
+              <article
+                key={s.t}
+                className="group flex h-full flex-col rounded-xl border border-border bg-card p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
+              >
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                  <Icon className="h-6 w-6" />
+                </div>
+                <h3 className="mt-5 text-lg font-semibold text-secondary">{s.t}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.d}</p>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -217,9 +226,9 @@ function Services() {
 function ServiceArea() {
   return (
     <section id="terulet" className="border-t border-border bg-muted/40">
-      <div className="mx-auto max-w-6xl px-4 py-16">
-        <h2 className="text-3xl font-bold md:text-4xl">Szolgáltatási terület</h2>
-        <p className="mt-4 max-w-3xl text-base text-muted-foreground md:text-lg">
+      <div className="mx-auto max-w-6xl px-4 py-20 md:py-24 md:px-6">
+        <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Szolgáltatási terület</h2>
+        <p className="mt-4 max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg">
           Autószervizünk Békésen, a Kalász soron található. Ügyfeleinket fogadjuk Békésről és a
           környező településekről — Békéscsabáról, Gyuláról és a 20 km-es körzetből.
         </p>
@@ -231,20 +240,20 @@ function ServiceArea() {
 function About() {
   return (
     <section id="rolunk" className="bg-background">
-      <div className="mx-auto max-w-6xl px-4 py-16">
-        <h2 className="text-3xl font-bold md:text-4xl">Rólunk</h2>
-        <p className="mt-4 max-w-3xl text-base text-muted-foreground md:text-lg">
+      <div className="mx-auto max-w-6xl px-4 py-20 md:py-24 md:px-6">
+        <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Rólunk</h2>
+        <p className="mt-4 max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg">
           Q-Service hálózat tagja, több mint 15 év tapasztalattal. Márkafüggetlen autószerviz
           személyautók és kis teherautók javítására. Modern diagnosztika, gyors hibafeltárás,
           garancia minden munkára.
         </p>
-        <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {trust.map((b) => (
             <li
               key={b}
-              className="rounded-md border border-border bg-card px-4 py-3 text-sm font-medium text-secondary"
+              className="rounded-lg border border-border bg-card px-4 py-3 text-sm font-medium text-secondary shadow-sm"
             >
-              ✓ {b}
+              <span className="mr-2 text-primary">✓</span>{b}
             </li>
           ))}
         </ul>
@@ -256,18 +265,26 @@ function About() {
 function Gallery() {
   return (
     <section id="galeria" className="border-t border-border bg-muted/40">
-      <div className="mx-auto max-w-6xl px-4 py-16">
-        <h2 className="text-3xl font-bold md:text-4xl">Pár kép szervizünkből</h2>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {Array.from({ length: 6 }).map((_, i) => (
+      <div className="mx-auto max-w-6xl px-4 py-20 md:py-24 md:px-6">
+        <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Pár kép szervizünkből</h2>
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {galleryImages.map((img, i) => (
             <div
               key={i}
-              className="flex aspect-[4/3] items-center justify-center rounded-lg border border-dashed border-border bg-card text-sm text-muted-foreground"
+              className="group relative aspect-[4/3] overflow-hidden rounded-xl border border-border bg-card shadow-sm"
             >
-              Kép {i + 1}
+              <img
+                src={img.src}
+                alt={img.alt}
+                loading="lazy"
+                width={1024}
+                height={768}
+                className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+              />
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );
