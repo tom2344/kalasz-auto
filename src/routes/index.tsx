@@ -123,24 +123,37 @@ function Index() {
 
 function Header() {
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        <a href="#top" className="flex items-center gap-2">
-          <img src={logo} alt="Q-Service" className="h-9 w-9 object-contain" width={36} height={36} />
-          <span className="font-bold text-secondary">Kalász Autószerviz</span>
+    <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 shadow-sm">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 md:px-6">
+        <a href="#top" className="flex items-center gap-2.5">
+          <img src={logo} alt="Q-Service" className="h-10 w-10 object-contain" width={40} height={40} />
+          <span className="font-bold text-secondary tracking-tight">Kalász Autószerviz</span>
         </a>
-        <nav className="hidden gap-6 text-sm md:flex">
-          <a href="#szolgaltatasok" className="hover:text-primary">Szolgáltatások</a>
-          <a href="#rolunk" className="hover:text-primary">Rólunk</a>
-          <a href="#idopont" className="hover:text-primary">Időpont</a>
-          <a href="#kapcsolat" className="hover:text-primary">Kapcsolat</a>
+        <nav className="hidden gap-7 text-sm font-medium md:flex">
+          <a href="#szolgaltatasok" className="text-foreground/80 hover:text-primary transition-colors">Szolgáltatások</a>
+          <a href="#rolunk" className="text-foreground/80 hover:text-primary transition-colors">Rólunk</a>
+          <a href="#idopont" className="text-foreground/80 hover:text-primary transition-colors">Időpont</a>
+          <a href="#kapcsolat" className="text-foreground/80 hover:text-primary transition-colors">Kapcsolat</a>
         </nav>
-        <a
-          href="tel:+36703683302"
-          className="rounded-md bg-primary px-3 py-2 text-sm font-semibold text-primary-foreground hover:opacity-90"
-        >
-          +36 70 368 3302
-        </a>
+        <div className="flex items-center gap-2">
+          <a
+            href="https://www.facebook.com/p/Kal%C3%A1sz-Aut%C3%B3szerviz-61582370366586/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+            className="hidden sm:inline-flex h-10 w-10 items-center justify-center rounded-md border border-border text-secondary hover:bg-muted transition-colors"
+          >
+            <Facebook className="h-5 w-5" />
+          </a>
+          <a
+            href="tel:+36703683302"
+            className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90 transition-colors"
+          >
+            <Phone className="h-4 w-4" />
+            <span className="hidden sm:inline">+36 70 368 3302</span>
+            <span className="sm:hidden">Hívás</span>
+          </a>
+        </div>
       </div>
     </header>
   );
